@@ -1,21 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function Section() {
+function Section({
+  title,
+  description,
+  backgroundImage,
+  leftButtonText,
+  rightButtonText,
+}) {
   return (
-    <Wrap>
+    <Wrap bgImage={backgroundImage}>
       <ItemText>
-        <h1>Model S</h1>
-        <p>Online order for Tesla Model S.</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
       </ItemText>
 
       <Buttons>
         <ButtonGroup>
-          <Leftbutton>Custom Order</Leftbutton>
-          <Rightbutton>Existing Inventory</Rightbutton>
+          <Leftbutton>{leftButtonText}</Leftbutton>
+          <Rightbutton>{rightButtonText}</Rightbutton>
         </ButtonGroup>
       </Buttons>
-      <DownArrow src='/images/down-arrow.svg' />
     </Wrap>
   )
 }
@@ -25,7 +30,7 @@ export default Section
 const Wrap = styled.div`
   height: 100vh;
   width: 100vw;
-  background-image: url('/images/model-s.jpg');
+  background-image: ${(props) => `url("/images/${props.bgImage}")`};
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -43,7 +48,7 @@ const ItemText = styled.div`
 const ButtonGroup = styled.div`
   display: flex;
   justify-content: space-around;
-  margin-top: 50vh;
+  margin-top: 60vh;
   margin-bottom: 25vh;
   align-items: center;
 `
@@ -86,9 +91,8 @@ const Leftbutton = styled.button`
   }
 
   @media (max-width: 768px) {
-    width: 100%;
+    flex-direction: column;
   }
-
   @media (max-width: 425px) {
     width: 100%;
   }
@@ -108,14 +112,6 @@ const Rightbutton = styled(Leftbutton)`
     transform: scale(1.1);
     transition-timing-function: ease-in-out;
   }
-`
-const DownArrow = styled.img`
-  height: 40px;
-  animation: animateDown infinite 1.5s;
-  animation-timing-function: ease-in-out;
-  overflow: hidden;
-  display: block;
-  align-self: center;
 `
 
 const Buttons = styled.div`
