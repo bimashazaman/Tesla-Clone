@@ -52,11 +52,11 @@ const ItemText = styled.div`
 
 const ButtonGroup = styled.div`
   display: flex;
-  justify-content: space-around;
   margin-top: 60vh;
   margin-bottom: 25vh;
   align-items: center;
   flex-direction: column;
+  justify-content: space-around;
 `
 const Leftbutton = styled.button`
   background-color: rgba(23, 26, 32, 0.8);

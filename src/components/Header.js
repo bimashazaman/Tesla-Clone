@@ -13,8 +13,6 @@ function Header() {
 
         <a href='#'>Model X</a>
 
-        <a href='#'>Model Y</a>
-
         <a href='#'>Model 3</a>
 
         <a href='#'>Model 4</a>
@@ -64,11 +62,18 @@ const Menu = styled.div`
     justify-content: center;
     align-items: center;
     transition: 0.3s;
+
     &:hover {
-      color: #f5f5f5;
-      transition: 1s;
-      transform: scale(1.1);
+      color: black;
+      padding: 10px;
+      border: 2px;
+      border: none;
+      border-radius: 100px;
+      background-color: #dcdcdc;
+      transition: 0.1s;
       transition-timing-function: ease-in-out;
+      cursor: pointer;
+      opacity: 0.8;
     }
 
     @media (max-width: 768px) {
@@ -89,7 +94,7 @@ const RightMenu = styled.div`
   }
 
   &:hover {
-    color: #fff;
+    color: #696969;
     transition: 1s;
     transform: scale(1.1);
     transition-timing-function: ease-in-out;
