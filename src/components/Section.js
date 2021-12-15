@@ -51,6 +51,7 @@ const ButtonGroup = styled.div`
   margin-top: 60vh;
   margin-bottom: 25vh;
   align-items: center;
+  flex-direction: column;
 `
 const Leftbutton = styled.button`
   background-color: rgba(23, 26, 32, 0.8);
@@ -92,13 +93,6 @@ const Leftbutton = styled.button`
 
   @media (max-width: 768px) {
     flex-direction: column;
-  }
-  @media (max-width: 425px) {
-    width: 100%;
-  }
-
-  @media (max-width: 375px) {
-    width: 100%;
   }
 `
 
