@@ -19,7 +19,7 @@ function Section({
       </Fade>
 
       <Buttons>
-        <Fade left>
+        <Fade bottom>
           <ButtonGroup>
             <Leftbutton>{leftButtonText}</Leftbutton>
             <Rightbutton>{rightButtonText}</Rightbutton>
@@ -52,11 +52,14 @@ const ItemText = styled.div`
 
 const ButtonGroup = styled.div`
   display: flex;
+  justify-content: space-around;
   margin-top: 60vh;
   margin-bottom: 25vh;
   align-items: center;
-  flex-direction: column;
-  justify-content: space-around;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 const Leftbutton = styled.button`
   background-color: rgba(23, 26, 32, 0.8);
@@ -84,35 +87,44 @@ const Leftbutton = styled.button`
     transform: scale(1.1);
     transition-timing-function: ease-in-out;
   }
-
-  &:active {
-    background-color: rgba(23, 26, 32, 0.9);
-    transition: 0.3s;
-    transform: scale(1.1);
-    transition-timing-function: ease-in-out;
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
 `
 
-const Rightbutton = styled(Leftbutton)`
+const Rightbutton = styled.button`
   background-color: white;
   color: black;
+  border: none;
+  border-radius: 100px;
+  padding: 10px;
+  margin-right: 20px;
+  height: 40px;
+  width: 256px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+  text-transform: uppercase;
+  margin: 8px;
 
   &:hover {
-    background-color: BLUE;
+    background-color: #1e90ff;
+    color: white;
     transition: 0.3s;
     transform: scale(1.1);
     transition-timing-function: ease-in-out;
+    cursor: pointer;
   }
+
+  /* @media (max-width: 768px) {
+    margin-top: 20px;
+  } */
 `
 
 const Buttons = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
 `

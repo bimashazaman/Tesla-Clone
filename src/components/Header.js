@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import MenuIcon from '@material-ui/icons/Menu'
+import CloseIcon from '@material-ui/icons/Close'
 
 function Header() {
   return (
@@ -23,6 +24,29 @@ function Header() {
         <a href=''>Account</a>
         <CustomMenu></CustomMenu>
       </RightMenu>
+      <BurgerNav>
+        <CloseWraper>
+          <CustomClose>
+            <CloseIcon />
+          </CustomClose>
+        </CloseWraper>
+
+        <li>
+          <a href='#'>Existing Inventory</a>
+        </li>
+        <li>
+          <a href='#'>USE Inventory</a>
+        </li>
+        <li>
+          <a href='#'>TRANDING</a>
+        </li>
+        <li>
+          <a href='#'>Cybertrack</a>
+        </li>
+        <li>
+          <a href='#'>Roadside</a>
+        </li>
+      </BurgerNav>
     </Container>
   )
 }
@@ -42,6 +66,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   padding: 0 20px;
+  z-index: 1;
 `
 const Menu = styled.div`
   display: flex;
@@ -103,4 +128,70 @@ const RightMenu = styled.div`
 
 const CustomMenu = styled(MenuIcon)`
   cursor: pointer;
+`
+
+const BurgerNav = styled.div`
+  /* display: none; */
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+  /* opacity: 0.8; */
+  width: 300px;
+  height: 100%;
+  list-style: none;
+  z-index: 16;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+
+  li {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #d3d3d3;
+    padding: 10px;
+  }
+  a {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0 10px;
+    flex-wrap: nowrap;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    &:hover {
+      color: black;
+      padding: 10px;
+      border: 2px;
+      border: none;
+      border-radius: 100px;
+      background-color: #dcdcdc;
+      transition: 0.1s;
+      transition-timing-function: ease-in-out;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
+`
+const CustomClose = styled(CloseIcon)`
+  cursor: pointer;
+
+  &:hover {
+    color: red;
+    transition: 1s;
+    transform: scale(1.1);
+    transition-timing-function: ease-in-out;
+  }
+`
+
+const CloseWraper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
 `
