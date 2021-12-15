@@ -4,18 +4,15 @@ import Section from './Section'
 
 const Home = () => {
   return (
-    <container>
+    <Container>
       <Section />
-    </container>
+    </Container>
   )
 }
 
 export default Home
 
-const container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+const Container = styled.div`
+  width: 100vw;
   height: 100vh;
 `
