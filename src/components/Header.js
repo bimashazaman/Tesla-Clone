@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
 
 function Header() {
+  const [burgerStatus, setBurgerStatus] = useState(false)
+  const [closeStatus, setCloseStatus] = useState(false)
+
   return (
     <Container>
       <a href=''>
@@ -22,11 +25,20 @@ function Header() {
       <RightMenu>
         <a href=''>Shop</a>
         <a href=''>Account</a>
-        <CustomMenu></CustomMenu>
+        <CustomMenu
+          onClick={() => {
+            setBurgerStatus(true)
+          }}
+        ></CustomMenu>
       </RightMenu>
-      <BurgerNav>
+      <BurgerNav show={burgerStatus}>
         <CloseWraper>
-          <CustomClose>
+          <CustomClose
+            onClick={() => {
+              setBurgerStatus(false)
+              setCloseStatus(true)
+            }}
+          >
             <CloseIcon />
           </CustomClose>
         </CloseWraper>
@@ -131,7 +143,6 @@ const CustomMenu = styled(MenuIcon)`
 `
 
 const BurgerNav = styled.div`
-  /* display: none; */
   position: fixed;
   top: 0;
   bottom: 0;
@@ -146,6 +157,8 @@ const BurgerNav = styled.div`
   display: flex;
   flex-direction: column;
   text-align: start;
+  transform: ${(props) => (props.show ? 'translateX(0)' : 'translateX(100%)')};
+  transition: transform 0.3s ease-in-out;
 
   li {
     margin-bottom: 20px;
@@ -180,6 +193,8 @@ const BurgerNav = styled.div`
 `
 const CustomClose = styled(CloseIcon)`
   cursor: pointer;
+  transform: ${(props) => (props.show ? 'translateX(100%)' : 'translateX(0)')};
+  transition: transform 0.3s ease-in-out;
 
   &:hover {
     color: red;
