@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import Section from './Section'
+import Header from './Header'
 
 const Home = () => {
   return (
     <Container>
+      <Header />
       <Section
         title='Model S'
         description='Online order for Tesla Model S.'
